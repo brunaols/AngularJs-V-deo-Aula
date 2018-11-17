@@ -1,0 +1,101 @@
+<html ng-app="AgendaTelefonicaApp">
+
+<head>
+    <title>Agenda Telefônica</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="css/cadastro.css">
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- AngularJS -->
+    <script src="js/angular-1.7.5/angular.min.js" type="text/javascript"></script>
+    
+        <script>
+               var listaTelefonicaApp = angular.module("ListaTelefonicaApp", []);
+               var cadastrarTelefoneCtrl = function($scope) {
+                $scope.contatos = [{
+                        nome: "Laura",
+                        operadora: 41,
+                        ddd: 83,
+                        numero: "9999-9999"
+                    },
+                    {
+                        nome: "Rafael",
+                        operadora: 31,
+                        ddd: 83,
+                        numero: "8888-8888"
+                    },
+                    {
+                        nome: "Manu",
+                        operadora: 41,
+                        ddd: 83,
+                        numero: "7777-7777"
+                    }
+                ];
+
+                $scope.adicionarContato = function() {
+                    console.log("Adicionar");
+                    }
+               };
+                
+                $scope.adicionarContato = function(contato){
+                    $scope.contatos.push(angular.copy(contato));
+                     delete $scope.contato;
+                    };
+                     
+                 });
+            
+                listaTelefonicaApp.controller("CadastrarTelefoneCtrl", cadastrarTelefoneCtrl);
+        </script>
+</head>
+
+<body ng-controller="CadastrarTelefoneCtrl">
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">Header</a>
+            </nav>
+        </header>
+        <main>
+            <h3>Agenda Telefônica</h3>
+            <form ng-controller="CadastrarTelefoneCtrl">
+                <div class="jumbotron">
+                    <table class="table table-striped">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Operadora</th>
+                                <th>DDD</th>
+                                <th>Telefone</th>
+                            </tr>
+                        <tbody>
+                            <tr ng-repeat="contato in contatos">
+                                <td>{{contato.nome}}</td>
+                                <td>{{contato.operadora}}</td>
+                                <td>{{contato.ddd}}</td>
+                                <td>{{contato.telefone}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <hr/>
+                            <input class="form-control" type="text" ng-model="contato.nome" placeholder="Nome:"/>
+                            <input class="form-control" type="text" ng-model="contato.operadora" placeholder="Operadora:"/>
+                            <input class="form-control" type="text" ng-model="contato.ddd" placeholder="DDD:"/>
+                            <input class="form-control" type="text" ng-model="contato.telefone" placeholder="Telefone:"/>
+                            <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)">Adicionar Contato</button>
+                </div>
+            </form>
+        </main>     
+        
+        <footer>
+            <nav class="navbar navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">Footer</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

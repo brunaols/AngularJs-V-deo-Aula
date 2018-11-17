@@ -1,0 +1,61 @@
+<html ng-app="AgendaTelefonicaApp">
+
+<head>
+    <title>Minha Aplicação AngularJS </title>
+    <meta charset="utf-8" />
+    
+    <script src="js/angular-1.7.5/angular.min.js" type="text/javascript"></script>
+    
+    <script>
+        angular.module("AgendaTelefonicaApp", []);
+        angular.module("AgendaTelefonicaApp").controller("AgendaTelefonicaCtrl"), function($scope) {
+            $scope.app = "Agenda Telefonica"
+            $scope.contatos = [
+                {nome: "Laura", operadora: "15", ddd: "83", telefone: "999997777"}
+                {nome: "Rafael", operadora: "31", ddd: "83", telefone: "999998888"}
+                {nome: "Manu", operadora: "41", ddd: "83", telefone: "999999999"}
+            ];
+        AgendaTelefonicaApp.controller("CadastrarTelefoneCtrl", cadastrarTelefoneCtrl);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            Header
+            <p id="usuario"></p>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#">Contatos</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <main>
+            <h3>Agenda Telefônica</h3>
+            <form ng-controller="CadastrarTelefoneCtrl">
+                <label for="numero1">Número 1</label>
+                <input type="number" name="numero1" ng-model="numero1" value="0">
+
+                <label for="numero2">Número 2</label>
+                <input type="number" name="numero2" ng-model="numero2" value="0">
+
+                <button ng-click="" value="Somar"></button>
+
+                <h1>Resultado:</h1>
+                {{numero1}} + {{numero2}} = {{resultado}}
+            </form>
+        </main>
+        <footer>
+            Footer
+        </footer>
+        <script>
+            var nome = "Bruna";
+            var elemento = document.getElementById("usuario");
+            elemento.innerHTML = nome;
+            // elemento.textContent = nome;
+        </script>
+    </div>
+</body>
+
+</html>

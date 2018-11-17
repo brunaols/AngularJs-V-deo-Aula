@@ -1,0 +1,43 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.jumbrotron {
+            width: 400px;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .table {
+            margin-top: 20px;
+        }
+        .form-control {
+            margin-bottom: 5px;
+        }
+}
+
+header {
+    background-color: grey;  
+    width: 100%;
+    display: block;    
+}
+
+main {
+    flex-grow: 1;
+    background-color: lightgray;
+}
+
+footer {
+    background-color: #FF5733;
+    width: 100%;
+}
